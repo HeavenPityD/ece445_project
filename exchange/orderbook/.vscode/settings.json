@@ -1,0 +1,17 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/mnt/c/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/exchange/orderbook",
+            "binaryPath": "/mnt/c/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/exchange/orderbook/main",
+            "binaryArgs": []
+        }
+    ],
+    "files.associations": {
+        "thread": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "iomanip": "cpp",
+        "string": "cpp"
+    }
+}

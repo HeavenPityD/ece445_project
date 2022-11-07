@@ -11,64 +11,48 @@
 #include <mutex>
 #include <condition_variable>
 #include "container.h"
+#include "Message.h"
 using namespace std;
-
-
-
-struct OrderTrade {
-    char fieldType; // 0 for order, 1 for trade, 2 for cancel
-    int index = -1;
-    char SecurityId[16];
-    int tradingDay;
-    int exchangeTime;
-    double price;
-    int volume;
-    char direction; // 0 for bid, 1 for ask
-    int askIndex;
-    int bidIndex;
-
-    OrderTrade();
-    OrderTrade(ifstream& csv);
-};
 
 class Orderbook {
     private:
         class Level {
             private:
-                int price;
-                unordered_map<int, int> orders;
-                int aggregatedVolume = 0;
-                
+                uint32_t price;
+                map<uint32_t, uint32_t> orders;
+
             public:
-                Level(int price);
-                void add(int index, int quantity);
-                void remove(int index, int quantity);
-                int getAggregatedVolume() const;
+                Level(uint32_t price);
+                void add(uint32_t ref, uint32_t quantity);
+                void remove(uint32_t ref, uint32_t quantity);
+                bool empty() const {
+                    return orders.size() == 0;
+                }
+                void trade(Level* level, SafeQueue<MarketMessage*>& outputQueue, uint32_t& seq);
+                void printLevel();
                 
         };
 
-        unordered_map<int, Level*> askLevels;
-        unordered_map<int, Level*> bidLevels;
-        SafeQueue<string>& outputBuffer;
-        int bestBid = INT32_MIN;
-        int bestAsk = INT32_MAX;
-        int otindex;
-        string securityId;
-        int tradingDay = -1;
-        int timeStamp = -1;
-        int totalVolume = 0;
-        long long int totalValue = 0;
-        int lastPrice = -1;
+        unordered_map<uint32_t, Level*> askLevels;
+        unordered_map<uint32_t, Level*> bidLevels;
+        unordered_map<uint32_t, uint32_t> askRef2Price;
+        unordered_map<uint32_t, uint32_t> bidRef2Price;
+        SafeQueue<MarketMessage*>& outputQueue;
+        uint32_t bestBid = 0;
+        uint32_t bestAsk = UINT32_MAX;
+        uint32_t bidRef = 0;
+        uint32_t askRef = 0;
+        uint32_t seq = 0;
 
-        inline void add(OrderTrade* msg);
-        inline void remove(OrderTrade* msg);
-        inline void trade(OrderTrade* msg);
-        void findBestBidHighLiquidity();
-        void findBestAskHighLiquidity();
-        void generateSnapshotHighLiquidity() const;
-    
+        inline void findBestBid();
+        inline void findBestAsk();
+
     public:
-        Orderbook(string securityId, SafeQueue<string>& outputBuffer);
-        void listen(OrderTrade* msg);
+        Orderbook(SafeQueue<MarketMessage*>& outputQueue): outputQueue(outputQueue) {}
+        uint32_t add(ClientAddMessage* msg);
+        void remove(ClientCancelMessage* msg);
+        void trade(uint32_t price);
+        void printOrderbook();
         ~Orderbook();
 };
+

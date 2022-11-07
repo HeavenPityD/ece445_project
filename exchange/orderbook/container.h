@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #define MAPSIZE 20000
+#pragma once
 
 using namespace std;
 
@@ -32,7 +33,6 @@ public:
   	}
 
   	bool empty() {
-		if (!done) return false;
 		return q.empty();
 	}
 	void markDone() {
