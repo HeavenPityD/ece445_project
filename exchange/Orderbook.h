@@ -12,6 +12,7 @@
 #include <condition_variable>
 #include "container.h"
 #include "Message.h"
+#pragma once
 using namespace std;
 
 class Orderbook {

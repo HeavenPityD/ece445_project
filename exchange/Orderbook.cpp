@@ -30,6 +30,7 @@ void Orderbook::Level::trade(Level* level, SafeQueue<MarketMessage*>& outputQueu
         tradeMsg -> bidRef = leftIt -> first;
         tradeMsg -> askRef = rightIt -> first;
         tradeMsg -> price = price;
+        cout << "trade price: " << price << endl;
         tradeMsg -> quant = quant;
         outputQueue.push(tradeMsg);
         remove((*leftIt).first, quant);
@@ -71,8 +72,6 @@ uint32_t Orderbook::add(ClientAddMessage* msg) {
         askLevels[price] -> add(askRef++, msg -> quant);
         bestAsk = min(bestAsk, price);
     }
-    if (bestBid == bestAsk) trade(bestBid);
-
     MarketAddMessage* addMsg = new MarketAddMessage();
     addMsg -> type = 0;
     addMsg -> seq = seq++;
@@ -81,6 +80,7 @@ uint32_t Orderbook::add(ClientAddMessage* msg) {
     addMsg -> price = msg -> price;
     addMsg -> quant = msg -> quant;
     outputQueue.push(addMsg);
+    if (bestBid == bestAsk) trade(bestBid);
     return ret;
 }
 

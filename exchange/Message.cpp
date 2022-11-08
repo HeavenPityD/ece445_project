@@ -61,3 +61,31 @@ uint32_t MarketTradeMessage::toMarketBinary(uint8_t* buf) {
     *((uint32_t*) (buf + 17)) = quant;
     return 21;
 }
+
+MarketAddMessage* MarketAddMessage::decode(uint8_t* buf) {
+    auto ret = new MarketAddMessage();
+    ret -> seq = *((uint32_t*) (buf + 1));
+    ret -> side = buf[5];
+    ret -> ref = *((uint32_t*) (buf + 6));
+    ret -> price = *((uint32_t*) (buf + 10));
+    ret -> quant = *((uint32_t*) (buf + 14));
+    return ret;
+}
+
+MarketCancelMessage* MarketCancelMessage::decode(uint8_t* buf) {
+    auto ret = new MarketCancelMessage();
+    ret -> seq = *((uint32_t*) (buf + 1));
+    ret -> side = buf[5];
+    ret -> ref = *((uint32_t*) (buf + 6));
+    return ret;
+}
+
+MarketTradeMessage* MarketTradeMessage::decode(uint8_t* buf) {
+    auto ret = new MarketTradeMessage();
+    ret -> seq = *((uint32_t*) (buf + 1));
+    ret -> bidRef = *((uint32_t*) (buf + 5));
+    ret -> askRef = *((uint32_t*) (buf + 9));
+    ret -> price = *((uint32_t*) (buf + 13));
+    ret -> quant = *((uint32_t*) (buf + 17));
+    return ret;
+}

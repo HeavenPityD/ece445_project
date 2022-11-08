@@ -16,7 +16,7 @@
 
 using namespace std; 
 
-struct sockaddr_in     servaddr; 
+struct sockaddr_in servaddr; 
 int sockfd;
 
 void parseInput(ClientAddMessage* msg) {
@@ -69,7 +69,6 @@ void receiveThread() {
 }
 
 int main() { 
-    
     uint8_t buf[MAXLINE];
     char buffer[MAXLINE]; 
     memset(&servaddr, 0, sizeof(servaddr)); 
@@ -91,8 +90,8 @@ int main() {
             MSG_CONFIRM, (const struct sockaddr *) &servaddr,  
                 sizeof(servaddr)); 
     thread t(sendThread);
-    thread t2(receiveThread);
+    // thread t2(receiveThread);
     t.join();
-    t2.join();
+    // t2.join();
     return 0;
 }

@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g -pthread -w
  
-main: main.cpp Orderbook.cpp Message.cpp
-	$(CC) $(CFLAGS) -o main main.cpp Orderbook.cpp Message.cpp
+main: main.cpp Orderbook.cpp Message.cpp Communicator.cpp
+	$(CC) $(CFLAGS) -o main main.cpp Orderbook.cpp Message.cpp Communicator.cpp
 
 client: Client.cpp Message.cpp
 	$(CC) $(CFLAGS) -o client Client.cpp Message.cpp

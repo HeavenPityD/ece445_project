@@ -4,11 +4,13 @@ Orderbook::Level::Level(uint32_t price): price(price) {}
 
 void Orderbook::Level::add(uint32_t ref, uint32_t quantity) {
     orders[ref] = quantity;
+    aggQuant += quantity;
 }
 
 void Orderbook::Level::remove(uint32_t ref, uint32_t quantity) {
     if (quantity == 0) quantity = orders[ref];
     orders[ref] -= quantity;
+    aggQuant -= quantity;
     if (orders[ref] == 0) orders.erase(ref);
 }
 
@@ -20,8 +22,13 @@ void Orderbook::Level::printLevel() {
     cout << endl;
 }
 
+uint32_t Orderbook::Level::getAggQuant() const {
+    return aggQuant;
+}
+
 void Orderbook::add(MarketAddMessage* msg) {
     uint32_t price = msg -> price;
+    cout << price << endl;
     if (!msg -> side) {
         if (bidLevels.find(price) == bidLevels.end()) {
             bidLevels[price] = new Level(price);
@@ -61,9 +68,18 @@ void Orderbook::remove(MarketCancelMessage* msg) {
 }
 
 void Orderbook::trade(MarketTradeMessage* msg) {
-    int price = bidRef2Price[msg -> bidRef];
-    bidLevels[price] -> remove(msg -> bidRef, msg -> price);
-    askLevels[price] -> remove(msg -> askRef, msg -> price);
+    int price = msg -> price;
+
+    bidLevels[price] -> remove(msg -> bidRef, msg -> quant);
+    if (bidLevels[price] -> empty()) {
+        bidLevels.erase(price);
+        findBestBid();
+    }
+    askLevels[price] -> remove(msg -> askRef, msg -> quant);
+    if (askLevels[price] -> empty()) {
+        askLevels.erase(price);
+        findBestAsk();
+    }
 }
 
 void Orderbook::printOrderbook() {
