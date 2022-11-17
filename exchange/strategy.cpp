@@ -186,10 +186,10 @@ void strategyThread() {
 }
 
 int main() {   
-    // cout << fixed;
-    // cout << setprecision(2);
+    cout << fixed;
+    cout << setprecision(2);
     thread t1(receiveThread);
-    // thread t2(terminal);
+    thread t2(terminal);
     thread t3(strategyThread);
     t1.join();
     int a;
