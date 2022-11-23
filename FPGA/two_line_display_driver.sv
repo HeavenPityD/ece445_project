@@ -28,13 +28,16 @@ always_ff @ (posedge clk_low) begin
     if (rst_driver) begin
         data = 1;
         scl = 1;
-    end else if (start) begin
-        state = 0;
-        clk_flag = 0;
-        slave_ct = 0;
-        ist_ct = 0;
-        data = 1;
-        scl = 1;
+        state = 7;
+    end else if (state == 7) begin
+        if (start) begin
+            state = 0;
+            clk_flag = 0;
+            slave_ct = 0;
+            ist_ct = 0;
+            data = 1;
+            scl = 1;
+        end
     end else if (state == 0) begin
         data = 0;
         scl = 1;
