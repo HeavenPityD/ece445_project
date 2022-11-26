@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698" \
+"../../../../i2c_controller.v" \
+
+sv xil_defaultlib  --include "../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698" \
+"../../../../clock_generator.sv" \
+"../../../../i2c_top.sv" \
+"../../../../test_i2c_controller.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

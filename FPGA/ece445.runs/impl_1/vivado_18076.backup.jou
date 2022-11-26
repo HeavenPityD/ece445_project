@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sat Nov 26 12:14:50 2022
+# Process ID: 18076
+# Current directory: C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.runs/impl_1
+# Command line: vivado.exe -log i2c_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source i2c_top.tcl -notrace
+# Log file: C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.runs/impl_1/i2c_top.vdi
+# Journal file: C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.runs/impl_1\vivado.jou
+# Running On: Richdesk, OS: Windows, CPU Frequency: 3793 MHz, CPU Physical cores: 16, Host memory: 17086 MB
+#-----------------------------------------------------------
+source i2c_top.tcl -notrace

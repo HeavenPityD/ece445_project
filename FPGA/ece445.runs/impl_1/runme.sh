@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
-EAStep vivado -log two_line_display_driver.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source two_line_display_driver.tcl -notrace
+/bin/touch .init_design.begin.rst
+EAStep vivado -log i2c_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source i2c_top.tcl -notrace
 
 

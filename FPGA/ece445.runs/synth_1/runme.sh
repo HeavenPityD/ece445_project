@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log two_line_display_driver.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source two_line_display_driver.tcl
+EAStep vivado -log i2c_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_top.tcl

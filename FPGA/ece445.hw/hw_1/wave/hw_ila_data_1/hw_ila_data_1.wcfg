@@ -9,50 +9,79 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="577"></ZoomStartTime>
-      <ZoomEndTime time="33,345"></ZoomEndTime>
-      <Cursor1Time time="4,424"></Cursor1Time>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="131,073"></ZoomEndTime>
+      <Cursor1Time time="30,844"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="184"></ValueColumnWidth>
+      <ValueColumnWidth column_width="154"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="9" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="data_OBUF" type="logic">
+   <wvobject fp_name="debug_out_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">data_OBUF</obj_property>
-      <obj_property name="ObjectShortName">data_OBUF</obj_property>
+      <obj_property name="ElementShortName">debug_out_OBUF</obj_property>
+      <obj_property name="ObjectShortName">debug_out_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="debug_out_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">debug_out_OBUF</obj_property>
+      <obj_property name="ObjectShortName">debug_out_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="i2c_sda_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">i2c_sda_OBUF</obj_property>
+      <obj_property name="ObjectShortName">i2c_sda_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="i2c_scl_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">i2c_scl_OBUF</obj_property>
+      <obj_property name="ObjectShortName">i2c_scl_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="rst_IBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">rst_IBUF</obj_property>
+      <obj_property name="ObjectShortName">rst_IBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="controller/write_enable_i_1_n_0" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">controller/write_enable_i_1_n_0</obj_property>
+      <obj_property name="ObjectShortName">write_enable_i_1_n_0</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="controller/state__0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">controller/state__0[3:2]</obj_property>
+      <obj_property name="ObjectShortName">state__0[3:2]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="scl_OBUF" type="logic">
+   <wvobject fp_name="i2c_sda_TRI" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">scl_OBUF</obj_property>
-      <obj_property name="ObjectShortName">scl_OBUF</obj_property>
+      <obj_property name="ElementShortName">i2c_sda_TRI</obj_property>
+      <obj_property name="ObjectShortName">i2c_sda_TRI</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="debug_out_OBUF" type="logic">
+   <wvobject fp_name="controller/state__0" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">debug_out_OBUF</obj_property>
-      <obj_property name="ObjectShortName">debug_out_OBUF</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="clk_low" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">clk_low</obj_property>
-      <obj_property name="ObjectShortName">clk_low</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="debug_out_OBUF" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">debug_out_OBUF</obj_property>
-      <obj_property name="ObjectShortName">debug_out_OBUF</obj_property>
+      <obj_property name="ElementShortName">controller/state__0[3:2]</obj_property>
+      <obj_property name="ObjectShortName">state__0[3:2]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

@@ -23,9 +23,9 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "write_bitstream", "begin" );
+ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log two_line_display_driver.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source two_line_display_driver.tcl -notrace" );
+         "-log i2c_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source i2c_top.tcl -notrace" );
 
 
 

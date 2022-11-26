@@ -1,4 +1,0 @@
-Running: xsim.dir/test_two_line_driver_behav/xsimk.exe -simmode gui -wdb test_two_line_driver_behav.wdb -simrunnum 0 -socket 54803
-Design successfully loaded
-Design Loading Memory Usage: 7828 KB (Peak: 7828 KB)
-Design Loading CPU Usage: 0 ms

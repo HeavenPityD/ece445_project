@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1669225999" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/testbench.dcp">
-  <File Type="PA-TCL" Name="two_line_display_driver.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="two_line_display_driver_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="two_line_display_driver_reports.tcl"/>
-  <File Type="RDS-RDS" Name="two_line_display_driver.vds"/>
-  <File Type="RDS-UTIL" Name="two_line_display_driver_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="two_line_display_driver_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="two_line_display_driver.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="two_line_display_driver_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="two_line_display_driver_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1669493488" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/testbench.dcp">
+  <File Type="PA-TCL" Name="i2c_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="i2c_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="i2c_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="i2c_top.vds"/>
+  <File Type="RDS-UTIL" Name="i2c_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="i2c_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="i2c_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="i2c_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="i2c_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/i2c_controller.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/clock_generator.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -18,8 +25,80 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/i2c_top.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/test_i2c_controller.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/two_line_display_driver.sv">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/display_ls.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/display_ls_I2C_out.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/display_ls_flow_control_loop_pipe_sequential_init.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/top_design_test.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/led_driver.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/led_driver_test.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -67,7 +146,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="two_line_display_driver"/>
+      <Option Name="TopModule" Val="i2c_top"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -101,4 +180,7 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_rst_clk_wiz_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_display_ls_0_1"/>
 </GenRun>

@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698" \
+"test_i2c_controller_func_synth.v" \
+
+# Do not sort compile order
+nosort
