@@ -1,9 +1,8 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698" \
+verilog xil_defaultlib  \
 "../../../../i2c_controller.v" \
 
-sv xil_defaultlib  --include "../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../clock_generator.sv" \
+sv xil_defaultlib  \
 "../../../../i2c_top.sv" \
 "../../../../test_i2c_controller.sv" \
 

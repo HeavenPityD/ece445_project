@@ -83,16 +83,16 @@ set_property webtalk.parent_dir {C:/Users/Richard/OneDrive - University of Illin
 set_property parent.project_path {C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths c:/Users/Richard/Desktop/export [current_project]
+set_property ip_repo_paths {
+  c:/Users/Richard/Desktop/export
+  c:/Users/Richard/Desktop/library
+} [current_project]
 update_ip_catalog
 set_property ip_output_repo {c:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib -sv {
-  {C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/clock_generator.sv}
-  {C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv}
-}
+read_verilog -library xil_defaultlib -sv {{C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv}}
 read_verilog -library xil_defaultlib {{C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v}}
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

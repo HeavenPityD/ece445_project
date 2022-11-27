@@ -7,7 +7,7 @@ module i2c_controller(
 	input wire rw,
 
 	output reg [7:0] data_out,
-	output reg ready,
+	output wire ready,
 
 	inout i2c_sda,
 	inout wire i2c_scl
@@ -32,8 +32,10 @@ module i2c_controller(
 	reg [7:0] counter2 = 0;
 	reg write_enable;
 	reg sda_out;
-	reg i2c_scl_enable = 1;
+	reg i2c_scl_enable = 0;
 	reg i2c_clk = 1;
+
+	assign ready = ((rst == 0) && (state == IDLE)) ? 1 : 0;
 	assign i2c_scl = (i2c_scl_enable == 0 ) ? 1 : i2c_clk;
 	assign i2c_sda = (write_enable == 1) ? sda_out : 'bz;
 	
@@ -62,17 +64,17 @@ module i2c_controller(
 	always @(posedge i2c_clk, posedge rst) begin
 		if(rst == 1) begin
 			state <= IDLE;
-			ready <= 1;
 		end		
 		else begin
 			case(state)
+			
 				IDLE: begin
 					if (enable) begin
-                        ready <= 0;
 						state <= START;
-						saved_addr <= data_in;
+						saved_addr <= {addr, rw};
 						saved_data <= data_in;
-					end else state <= IDLE;
+					end
+					else state <= IDLE;
 				end
 
 				START: begin
@@ -83,19 +85,14 @@ module i2c_controller(
 				ADDRESS: begin
 					if (counter == 0) begin 
 						state <= READ_ACK;
-						ready <= 1;
 					end else counter <= counter - 1;
 				end
 
 				READ_ACK: begin
 					if (i2c_sda == 0) begin
-					   ready <= 0;
-					   if (enable) begin
 						counter <= 7;
-			            saved_data <= data_in;
-						if(saved_addr[0] == 0) state <= ADDRESS;
-						else state <= ADDRESS;
-						end else state <= STOP;
+						if(saved_addr[0] == 0) state <= WRITE_DATA;
+						else state <= READ_DATA;
 					end else state <= STOP;
 				end
 
@@ -140,14 +137,16 @@ module i2c_controller(
 				end
 				
 				ADDRESS: begin
-				    write_enable = 1;
-					sda_out <= saved_data[counter];
-					
+					sda_out <= saved_addr[counter];
 				end
 				
 				READ_ACK: begin
-					write_enable = 0;
+					write_enable <= 0;
 				end
+				
+				READ_ACK2: begin
+				    write_enable <= 0;
+                end        
 				
 				WRITE_DATA: begin 
 					write_enable <= 1;

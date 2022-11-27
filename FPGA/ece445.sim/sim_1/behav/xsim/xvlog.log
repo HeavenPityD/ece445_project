@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_top
+WARNING: [VRFC 10-8497] literal value 'hff truncated to fit in 7 bits [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv:26]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/test_i2c_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_i2c_controller
