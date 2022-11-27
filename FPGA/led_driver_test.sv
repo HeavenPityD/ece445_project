@@ -18,6 +18,8 @@ end
 initial begin: TEST_VECTORS
 #2 rst = 1;
 #2 rst = 0;
+
+#9 balance = 32'd789012;
 end
 
 endmodule
