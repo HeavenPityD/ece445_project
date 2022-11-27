@@ -5,20 +5,30 @@ timeunit 10ns;	// Half clock cycle at 50 MHz
 timeprecision 1ns;
 
 logic clk = 0;
-logic [167:0] msg = -1;
+logic next_msg = 0;
 logic signal = 0;
+logic rst = 0;
 top topModule(.*);
+
 
 always begin : CLOCK_GENERATION
 #1 clk = ~clk;
 end
 
 initial begin: TEST_VECTORS
-#10 msg = {24'd000000, 32'd1, 32'd96, 32'd0, 8'd0, 32'd0, 8'd0};
+#2 rst = 1;
+#2 rst = 0;
+#10 next_msg = 1;
+#10 next_msg = 0;
 
-#10 msg = {24'd000000, 32'd1, 32'd104, 32'd0, 8'd1, 32'd1, 8'd0};
+#10 next_msg = 1;
+#10 next_msg = 0;
 
-#10 msg = {24'd000000, 32'd1, 32'd103, 32'd0, 8'd0, 32'd2, 8'd0};
+#10 next_msg = 1;
+#10 next_msg = 0;
+
+#10 next_msg = 1;
+#10 next_msg = 0;
 end
 
 endmodule

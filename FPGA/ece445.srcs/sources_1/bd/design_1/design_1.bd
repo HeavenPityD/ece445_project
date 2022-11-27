@@ -10,24 +10,80 @@
       "tool_version": "2022.2"
     },
     "design_tree": {
-      "PmodOLED_0": ""
+      "axi_ethernet_0": ""
     },
     "components": {
-      "PmodOLED_0": {
-        "vlnv": "digilentinc.com:IP:PmodOLED:1.0",
-        "xci_name": "design_1_PmodOLED_0_0",
-        "xci_path": "ip\\design_1_PmodOLED_0_0\\design_1_PmodOLED_0_0.xci",
-        "inst_hier_path": "PmodOLED_0",
+      "axi_ethernet_0": {
+        "vlnv": "xilinx.com:ip:axi_ethernet:7.2",
+        "xci_name": "design_1_axi_ethernet_0_0",
+        "xci_path": "ip\\design_1_axi_ethernet_0_0\\design_1_axi_ethernet_0_0.xci",
+        "inst_hier_path": "axi_ethernet_0",
         "interface_ports": {
-          "AXI_LITE_SPI": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+          "s_axi": {
             "mode": "Slave",
-            "memory_map_ref": "AXI_LITE_SPI"
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "ADDR_WIDTH": {
+                "value": "18"
+              },
+              "PROTOCOL": {
+                "value": "AXI4LITE"
+              }
+            },
+            "memory_map_ref": "s_axi"
           },
-          "AXI_LITE_GPIO": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+          "s_axis_txd": {
             "mode": "Slave",
-            "memory_map_ref": "AXI_LITE_GPIO"
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "s_axis_txc": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "m_axis_rxd": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "m_axis_rxs": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "mdio": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:mdio:1.0",
+            "vlnv": "xilinx.com:interface:mdio_rtl:1.0"
+          },
+          "gmii": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:gmii:1.0",
+            "vlnv": "xilinx.com:interface:gmii_rtl:1.0"
+          }
+        },
+        "addressing": {
+          "memory_maps": {
+            "s_axi": {
+              "address_blocks": {
+                "Reg0": {
+                  "base_address": "0",
+                  "range": "256K",
+                  "width": "18",
+                  "usage": "register",
+                  "bank_blocks": {
+                    "SEG_eth_buf_REG;/eth_buf/S_AXI/Reg;xilinx.com:ip:axi_ethernet_buffer:2.0;/eth_buf;S_AXI;NONE;NONE": {
+                      "base_address": "0",
+                      "range": "256K",
+                      "width": "18",
+                      "usage": "register"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log i2c_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_top.tcl
+    with args -log testbench.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source testbench.tcl
 
 
 
@@ -9,7 +9,7 @@
   **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
-source i2c_top.tcl -notrace
+source testbench.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Richard/Desktop/export'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Richard/Desktop/library'.
@@ -19,7 +19,7 @@ Current IP cache path is c:/Users/Richard/OneDrive - University of Illinois - Ur
 Command: read_checkpoint -auto_incremental -incremental {C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/utils_1/imports/synth_1/testbench.dcp}
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/utils_1/imports/synth_1/testbench.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top i2c_top -part xc7a35ticsg324-1L
+Command: synth_design -top testbench -part xc7a35ticsg324-1L
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
@@ -28,106 +28,224 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21220
+INFO: [Synth 8-7075] Helper process launched with PID 11920
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1222.262 ; gain = 409.680
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1222.078 ; gain = 407.848
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'i2c_top' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'i2c_controller' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:1]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:69]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:132]
-INFO: [Synth 8-6155] done synthesizing module 'i2c_controller' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'i2c_top' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv:1]
-WARNING: [Synth 8-7137] Register saved_addr_reg in module i2c_controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:74]
-WARNING: [Synth 8-7137] Register saved_data_reg in module i2c_controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:75]
-WARNING: [Synth 8-7137] Register counter_reg in module i2c_controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:81]
-WARNING: [Synth 8-7137] Register data_out_reg in module i2c_controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v:111]
-WARNING: [Synth 8-3917] design i2c_top has port debug_out driven by constant 1
-WARNING: [Synth 8-7129] Port rst_clk in module i2c_top is either unconnected or has no load
+INFO: [Synth 8-6157] synthesizing module 'testbench' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/top.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'sequencer' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'sequencer' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'processor' [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/processor.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'processor' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/processor.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/top.sv:1]
+CRITICAL WARNING: [Synth 8-5972] variable 'signal' cannot be written by both continuous and procedural assignments [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv:11]
+WARNING: [Synth 8-85] always block has no event control specified [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'testbench' (0#1) [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv:1]
+WARNING: [Synth 8-6014] Unused sequential element stock_reg was removed.  [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/processor.sv:28]
+WARNING: [Synth 8-6014] Unused sequential element bidLevel_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element askLevel_reg was removed. 
+WARNING: [Synth 8-7129] Port msg[167] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[166] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[165] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[164] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[163] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[162] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[161] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[160] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[159] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[158] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[157] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[156] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[155] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[154] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[153] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[152] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[151] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[150] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[149] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[148] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[147] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[146] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[145] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[144] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[79] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[78] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[77] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[76] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[75] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[74] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[73] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[72] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[71] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[70] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[69] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[68] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[67] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[66] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[65] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[64] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[63] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[62] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[61] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[60] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[59] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[58] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[57] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[56] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[55] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[54] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[53] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[52] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[51] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[50] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[49] in module processor is either unconnected or has no load
+WARNING: [Synth 8-7129] Port msg[48] in module processor is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.676 ; gain = 500.094
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1312.965 ; gain = 498.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.676 ; gain = 500.094
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1312.965 ; gain = 498.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.676 ; gain = 500.094
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1312.965 ; gain = 498.734
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1312.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1312.965 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc]
-WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:61]
-WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:62]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:1]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:1]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst_clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:5]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:5]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst_clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_out'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_out'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_scl'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_scl'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_sda'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_sda'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst_low'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:42]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst_low'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_sda'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'i2c_sda'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst_low'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:57]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:57]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'i2c_scl'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:61]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:61]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:62]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc:62]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
 Finished Parsing XDC File [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/i2c_top_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/i2c_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/testbench_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1414.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1360.570 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1414.500 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1360.570 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i2c_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'processor'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    IDLE |                             0001 |                         00000000
-                   START |                             1000 |                         00000001
-                 ADDRESS |                             0111 |                         00000010
-                READ_ACK |                             0110 |                         00000011
-              WRITE_DATA |                             0101 |                         00000100
-               READ_ACK2 |                             0100 |                         00000111
-               READ_DATA |                             0011 |                         00000110
-               WRITE_ACK |                             0010 |                         00000101
-                    STOP |                             0000 |                         00001000
+                 iSTATE0 |                               01 |                               00
+                  iSTATE |                               10 |                               01
+*
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'i2c_controller'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'processor'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    8 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 5     
-	                1 Bit    Registers := 4     
+	              168 Bit    Registers := 1     
+	               32 Bit    Registers := 5     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	               8K Bit	(50 X 169 bit)          RAMs := 1     
 +---Muxes : 
-	   9 Input    8 Bit        Muxes := 2     
-	   2 Input    8 Bit        Muxes := 1     
-	   9 Input    4 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 4     
-	   2 Input    1 Bit        Muxes := 4     
-	   9 Input    1 Bit        Muxes := 7     
+	   5 Input  113 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 7     
+	   2 Input    2 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -144,30 +262,29 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3917] design i2c_top has port debug_out driven by constant 1
-WARNING: [Synth 8-7129] Port rst_clk in module i2c_top is either unconnected or has no load
+WARNING: [Synth 8-3936] Found unconnected internal register 'topModule/seq/msgOut_reg' and it is trimmed from '168' to '112' bits. [C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv:16]
+WARNING: [Synth 8-3332] Sequential element (topModule/process/FSM_onehot_state_reg[1]) is unused and will be removed from module testbench.
+WARNING: [Synth 8-3332] Sequential element (topModule/process/FSM_onehot_state_reg[0]) is unused and will be removed from module testbench.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-565] redefining clock 'clk'
-WARNING: [Synth 8-565] redefining clock 'clk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -185,37 +302,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -228,47 +345,30 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |BUFG  |     1|
-|2     |LUT1  |     2|
-|3     |LUT2  |     4|
-|4     |LUT3  |     5|
-|5     |LUT4  |     4|
-|6     |LUT5  |     8|
-|7     |LUT6  |    15|
-|8     |FDCE  |     5|
-|9     |FDPE  |     2|
-|10    |FDRE  |    17|
-|11    |IBUF  |     2|
-|12    |IOBUF |     1|
-|13    |OBUF  |     3|
-+------+------+------+
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:18 . Memory (MB): peak = 1414.500 ; gain = 500.094
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1414.500 ; gain = 601.918
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:19 . Memory (MB): peak = 1360.570 ; gain = 498.734
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1360.570 ; gain = 546.340
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1414.500 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1360.570 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1414.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1360.570 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1 instances were transformed.
-  IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
+No Unisim elements were transformed.
 
-Synth Design complete, checksum: e04e9610
+Synth Design complete, checksum: 4b9f2ba5
 INFO: [Common 17-83] Releasing license: Synthesis
-35 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+35 Infos, 86 Warnings, 22 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1414.500 ; gain = 984.262
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.runs/synth_1/i2c_top.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file i2c_top_utilization_synth.rpt -pb i2c_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 27 10:17:51 2022...
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1360.570 ; gain = 928.973
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.runs/synth_1/testbench.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file testbench_utilization_synth.rpt -pb testbench_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 27 12:58:04 2022...

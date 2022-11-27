@@ -2,8 +2,11 @@
 2020.2
 Oct 14 2022
 05:20:55
-C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/clock_generator.sv,1669205241,systemVerilog,,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv,,clock_generator,,uvm,../../../../ece445.gen/sources_1/bd/design_1/ipshared/7698,,,,,
 C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/ece445.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,uvm,,,,,,
-C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v,1669510844,verilog,,,,i2c_controller,,uvm,,,,,,
-C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv,1669511164,systemVerilog,,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/test_i2c_controller.sv,,i2c_top,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_controller.v,1669512234,verilog,,,,i2c_controller,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/i2c_top.sv,1669565831,systemVerilog,,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/test_i2c_controller.sv,,i2c_top,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/processor.sv,1669575343,systemVerilog,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv;C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv;C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/top.sv,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv,,$unit_processor_sv_2239535883;processor,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/sequencer.sv,1668741684,systemVerilog,,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/top.sv,,sequencer,,uvm,,,,,,
 C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/test_i2c_controller.sv,1669511039,systemVerilog,,,,test_i2c_controller,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv,1669574259,systemVerilog,,,,testbench,,uvm,,,,,,
+C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/top.sv,1669575419,systemVerilog,,C:/Users/Richard/OneDrive - University of Illinois - Urbana/UIUC/Fall2022/ECE445/ece445_project/FPGA/testbench.sv,,top,,uvm,,,,,,

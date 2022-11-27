@@ -1,12 +1,13 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"-972,-817",
+   "Default View_ScaleFactor":"1.76777",
+   "Default View_TopLeft":"-367,-550",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-levelinfo -pg 1 -180 10 270 570 770
-pagesize -pg 1 -db -bbox -sgen -180 -600 770 180
+preplace inst axi_ethernet_0 -pg 1 -lvl 1 -x 10 -y -170 -defaultsOSRD
+levelinfo -pg 1 -130 10 150
+pagesize -pg 1 -db -bbox -sgen -130 -340 150 340
 "
 }
 {
