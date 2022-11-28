@@ -9,6 +9,8 @@ logic rst = 0;
 logic [31:0] balance = 32'd123456;
 logic cclr_neg;
 logic [3:0] num;
+logic clk_out;
+logic next_num;
 led_driver driver(.*);
 
 always begin : CLOCK_GENERATION
@@ -19,7 +21,8 @@ initial begin: TEST_VECTORS
 #2 rst = 1;
 #2 rst = 0;
 
-#9 balance = 32'd789012;
+#20 next_num = 1;
+
 end
 
 endmodule

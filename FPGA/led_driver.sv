@@ -1,18 +1,32 @@
 module led_driver(
     input logic rst,
-    input logic [31:0] balance,
     input logic clk,
     output logic cclr_neg,
-    output logic[3:0] num
+    output logic[3:0] num,
+    output logic clk_out,
+    input logic next_num
 );
 logic [3:0] buffer[8];
 logic [3:0] ct;
-logic rst_out;
-always_ff @ (posedge clk) begin
-    if (rst_out) begin
-        ct = 1;
+logic rst_out=0;
+logic [31:0]balance = 32'd11111111;
+logic [2:0] state_1 = 0;
+clock_generator gen(.low_clk(clk_out),.*);
+always_ff @ (posedge clk_out) begin
+    if (next_num == 1) balance = 32'd22222222;
+end
+always_ff @ (posedge clk_out) begin
+//    if (rst_out) begin
+//        ct = 1;
+//        cclr_neg = 0;
+//       state_1 = 1;
+    if (state_1 == 0) begin
         cclr_neg = 0;
-        num = buffer[0];
+        state_1 = 1;
+        ct = 0;
+    end else if (state_1 == 1) begin
+        state_1 = 2;
+        cclr_neg =1;
     end else begin
         cclr_neg = 1;
         num = buffer[ct];
