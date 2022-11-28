@@ -20,7 +20,7 @@ initial begin: TEST_VECTORS
 #2 rst_clk = 1;
 #2 rst_clk = 0;
 #2 rst = 1;
-#500 rst = 0;
+#10 rst = 0;
 end
 
 endmodule

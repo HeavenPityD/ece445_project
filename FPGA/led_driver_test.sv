@@ -20,7 +20,9 @@ end
 initial begin: TEST_VECTORS
 #2 rst = 1;
 #2 rst = 0;
+
 #20 next_num = 1;
+
 end
 
 endmodule
